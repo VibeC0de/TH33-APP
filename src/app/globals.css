@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'OpenAI';
+  src: url('https://ext.same-assets.com/3260400727/409170331.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 93%;
+    --foreground: 0 0% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 16 94% 49%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --tertiary: 0 0% 40%;
+    --tertiary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+
+    --page-max-width: 78rem;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 93%;
+
+    --card: 0 0% 17%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 17%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 16 94% 49%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --tertiary: 0 0% 35%;
+    --tertiary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 25%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 80%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'OpenAI', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .Button_LED__yt_Oj {
+    @apply block w-[6px] h-[6px] rounded-full bg-foreground/30;
+  }
+
+  .Button_LED__yt_Oj[data-on="true"] {
+    @apply bg-primary;
+  }
+
+  .Button_Button__u2RFO {
+    @apply bg-white dark:bg-card shadow-sm rounded-md px-4 py-3 flex items-center justify-center
+    hover:opacity-95 transition-all duration-150 cursor-pointer select-none relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .Button_Button__u2RFO[data-color="primary"] {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .Button_Button__u2RFO[data-color="secondary"] {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .Button_Button__u2RFO[data-color="tertiary"] {
+    @apply bg-tertiary text-tertiary-foreground;
+  }
+
+  .Button_Button__u2RFO[data-color="neutral"] {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .Button_Button__u2RFO[data-color="default"] {
+    @apply bg-white dark:bg-card text-foreground;
+  }
+
+  /* Selected button styles */
+  .Button_Button__u2RFO[data-selected="true"] {
+    @apply ring-1 ring-primary border-orange-500 shadow-inner bg-white/95 dark:bg-card dark:bg-opacity-90;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px #f94b06;
+  }
+
+  .dark .Button_Button__u2RFO[data-selected="true"] {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.4), 0 0 0 1px #f94b06;
+  }
+
+  .Button_Button__u2RFO[data-selected="true"] .Button_LED__yt_Oj {
+    @apply bg-primary;
+  }
+
+  /* Active state for buttons when clicked */
+  .Button_Button__u2RFO:active {
+    @apply shadow-inner transform scale-[0.98] transition-transform duration-75;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .Button_Button__u2RFO:active {
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Focus state for keyboard navigation */
+  .Button_Button__u2RFO:focus-visible {
+    @apply outline-none ring-2 ring-primary/50;
+  }
+
+  .shadow-textarea {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark .shadow-textarea {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+}
