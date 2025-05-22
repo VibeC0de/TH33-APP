@@ -3,27 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TH33 APP - The revolutionary everything app by AZ Labs that will transform how you interact with technology.">
     <title>TH33 APP - The Everything App by AZ Labs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
 
         :root {
-            --primary-color: #00ff9d;
-            --secondary-color: #ff00ff;
-            --accent-color: #00c8ff;
-            --background-color: #0a0a1f;
+            /* Primary palette - blue-focused with complementary colors */
+            --primary-color: #0062ff; /* Rich blue as primary */
+            --secondary-color: #ff7b00; /* Complementary orange/amber */
+            --accent-color: #00c2d1; /* Teal/cyan accent */
+            --background-color: #051336; /* Deep navy blue background */
             --text-color: #ffffff;
+
+            /* Extended palette for depth */
+            --primary-light: #4a8eff;
+            --primary-dark: #0046b5;
+            --secondary-light: #ff9a40;
+            --secondary-dark: #cc6200;
+            --accent-light: #40e0ed;
+            --accent-dark: #00919c;
+
+            /* UI Colors */
+            --surface-color: rgba(255, 255, 255, 0.03);
+            --surface-color-hover: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(0, 98, 255, 0.2);
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --overlay-light: rgba(5, 19, 54, 0.7);
+
+            /* Typography */
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Orbitron', sans-serif;
+
+            /* Spacing system */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-xxl: 3rem;
+
+            /* Animation */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: var(--font-primary);
             background-color: var(--background-color);
             color: var(--text-color);
-            overflow: hidden;
-            height: 100vh;
+            overflow-x: hidden;
+            min-height: 100vh;
+            line-height: 1.6;
+            font-weight: 300;
+            letter-spacing: 0.01em;
         }
 
         .container {
@@ -135,13 +182,13 @@
 
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(0, 255, 157, 0.7);
+                box-shadow: 0 0 0 0 rgba(0, 98, 255, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 10px rgba(0, 255, 157, 0);
+                box-shadow: 0 0 0 10px rgba(0, 98, 255, 0);
             }
             100% {
-                box-shadow: 0 0 0 0 rgba(0, 255, 157, 0);
+                box-shadow: 0 0 0 0 rgba(0, 98, 255, 0);
             }
         }
 
@@ -219,12 +266,12 @@
             border-radius: 10px;
             padding: 1rem;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 255, 157, 0.2);
+            border: 1px solid rgba(0, 98, 255, 0.2);
         }
 
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 98, 255, 0.3);
             border-color: var(--primary-color);
         }
 
@@ -235,7 +282,7 @@
 
         .feature-title {
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--secondary-color);
         }
 
         @media (max-width: 768px) {
@@ -349,7 +396,7 @@
                 this.vx = Math.random() * 2 - 1;
                 this.vy = Math.random() * 2 - 1;
                 this.radius = Math.random() * 2 + 1;
-                this.color = Math.random() > 0.5 ? '#00ff9d' : '#ff00ff';
+                this.color = Math.random() > 0.5 ? '#0062ff' : '#00c2d1';
                 this.pulseSpeed = Math.random() * 0.05 + 0.01;
                 this.pulseDirection = 1;
                 this.pulseSize = 0;
@@ -420,8 +467,8 @@
 
                         // Create gradient effect between nodes
                         const gradient = ctx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
-                        gradient.addColorStop(0, `rgba(0, 255, 157, ${1 - distance / 180})`);
-                        gradient.addColorStop(1, `rgba(255, 0, 255, ${1 - distance / 180})`);
+                        gradient.addColorStop(0, `rgba(0, 98, 255, ${1 - distance / 180})`);
+                        gradient.addColorStop(1, `rgba(0, 194, 209, ${1 - distance / 180})`);
 
                         ctx.strokeStyle = gradient;
                         ctx.lineWidth = Math.max(1, 3 * (1 - distance / 180));
